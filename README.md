@@ -1,6 +1,11 @@
 
+You first need to append omniweights to the MC file
 
-You first need to install fastjet. I have fastjet-3.4.1 
+```
+python addWeightToTree.py
+```
+
+Then you need to install fastjet. I have fastjet-3.4.1 
 
 ```
 ## please check https://fastjet.fr/quickstart.html
