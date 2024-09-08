@@ -29,8 +29,7 @@ lsetup "root 6.30.02-x86_64-el9-gcc13-opt"
 COMPILER=$(root-config --cxx)
 FLAGS=$(root-config --cflags --libs)
 echo $COMPILER $FLAGS
-$COMPILER $FLAGS -g -O3 -Wall -Wextra -Wpedantic -fopenmp ./doHisto.cc ./MakeVars.C  ./DoPlots.cxx ./analysisHelpers.cxx ./jetHelpers.cxx ./AtlasLabels.C ./AtlasStyle.C ./AtlasUtils.C `fastjet-install/bin/fastjet-config --cxxflags --libs --plugins` -I. -o doHisto
-
+$COMPILER $FLAGS -g -O3 -Wall -Wextra -Wpedantic -fopenmp ./doHisto.cc ./MakeOmni.C ./MakeTruth.C  ./DoPlots.cxx ./analysisHelpers.cxx ./jetHelpers.cxx ./AtlasLabels.C ./AtlasStyle.C ./AtlasUtils.C `fastjet-install/bin/fastjet-config --cxxflags --libs --plugins` -I. -o doHisto
 ```
 
 To run, it's a 2 step approach (not really needed but well..). First run to get an output root file 
