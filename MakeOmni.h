@@ -1,20 +1,20 @@
 //////////////////////////////////////////////////////////
 // This class has been automatically generated on
-// Thu Sep  5 12:05:18 2024 by ROOT version 6.30/02
+// Sun Sep  8 17:40:14 2024 by ROOT version 6.30/02
 // from TTree OmniTree/
-// found on file: tmp_mc.root
+// found on file: /data/jmsardain/Zjets/data/tmp_mc.root
 //////////////////////////////////////////////////////////
 
-#ifndef MakeVars_h
-#define MakeVars_h
+#ifndef MakeOmni_h
+#define MakeOmni_h
 
 #include <TROOT.h>
 #include <TChain.h>
 #include <TFile.h>
-#include <vector>
+
 // Header file for the classes stored in the TTree if any.
 
-class MakeVars {
+class MakeOmni {
 public :
    TTree          *fChain;   //!pointer to the analyzed TTree or TChain
    Int_t           fCurrent; //!current Tree number in a TChain
@@ -457,8 +457,8 @@ public :
    TBranch        *b_truth_trackJetIndex_tracks;   //!
    TBranch        *b_omni_weight_test;   //!
 
-   MakeVars(TTree *tree=0);
-   virtual ~MakeVars();
+   MakeOmni(TTree *tree=0);
+   virtual ~MakeOmni();
    virtual Int_t    Cut(Long64_t entry);
    virtual Int_t    GetEntry(Long64_t entry);
    virtual Long64_t LoadTree(Long64_t entry);
@@ -470,15 +470,15 @@ public :
 
 #endif
 
-#ifdef MakeVars_cxx
-MakeVars::MakeVars(TTree *tree) : fChain(0) 
+#ifdef MakeOmni_cxx
+MakeOmni::MakeOmni(TTree *tree) : fChain(0) 
 {
 // if parameter tree is not specified (or zero), connect the file
 // used to generate this class and read the Tree.
    if (tree == 0) {
-      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("tmp_mc.root");
+      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("/data/jmsardain/Zjets/data/tmp_mc.root");
       if (!f || !f->IsOpen()) {
-         f = new TFile("tmp_mc.root");
+         f = new TFile("/data/jmsardain/Zjets/data/tmp_mc.root");
       }
       f->GetObject("OmniTree",tree);
 
@@ -486,19 +486,19 @@ MakeVars::MakeVars(TTree *tree) : fChain(0)
    Init(tree);
 }
 
-MakeVars::~MakeVars()
+MakeOmni::~MakeOmni()
 {
    if (!fChain) return;
    delete fChain->GetCurrentFile();
 }
 
-Int_t MakeVars::GetEntry(Long64_t entry)
+Int_t MakeOmni::GetEntry(Long64_t entry)
 {
 // Read contents of entry.
    if (!fChain) return 0;
    return fChain->GetEntry(entry);
 }
-Long64_t MakeVars::LoadTree(Long64_t entry)
+Long64_t MakeOmni::LoadTree(Long64_t entry)
 {
 // Set the environment to read one entry
    if (!fChain) return -5;
@@ -511,7 +511,7 @@ Long64_t MakeVars::LoadTree(Long64_t entry)
    return centry;
 }
 
-void MakeVars::Init(TTree *tree)
+void MakeOmni::Init(TTree *tree)
 {
    // The Init() function is called when the selector needs to initialize
    // a new tree or chain. Typically here the branch addresses and branch
@@ -746,7 +746,7 @@ void MakeVars::Init(TTree *tree)
    Notify();
 }
 
-Bool_t MakeVars::Notify()
+Bool_t MakeOmni::Notify()
 {
    // The Notify() function is called when a new file is opened. This
    // can be either for a new TTree in a TChain or when when a new TTree
@@ -757,18 +757,18 @@ Bool_t MakeVars::Notify()
    return kTRUE;
 }
 
-void MakeVars::Show(Long64_t entry)
+void MakeOmni::Show(Long64_t entry)
 {
 // Print contents of entry.
 // If entry is not specified, print current entry
    if (!fChain) return;
    fChain->Show(entry);
 }
-Int_t MakeVars::Cut(Long64_t entry)
+Int_t MakeOmni::Cut(Long64_t entry)
 {
 // This function may be called from Loop.
 // returns  1 if entry is accepted.
 // returns -1 otherwise.
    return 1;
 }
-#endif // #ifdef MakeVars_cxx
+#endif // #ifdef MakeOmni_cxx
