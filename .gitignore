@@ -1,0 +1,8 @@
+fastjet-3.4.1/
+fastjet-install/
+out/
+plots/
+SendJobs/logs/*out
+SendJobs/logs/*err
+SendJobs/logs/*log
+doHisto
