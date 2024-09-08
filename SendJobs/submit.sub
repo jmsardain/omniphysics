@@ -1,0 +1,9 @@
+universe = vanilla
+executable = run.sh
+arguments = $(arg1)
+output = logs/log_$(Process).out
+error  = logs/log_$(Process).err
+log    = logs/log_$(Process).log
+request_memory = 20GB
++JobFlavour  = "nextweek"
+queue arg1 in reco, truth
